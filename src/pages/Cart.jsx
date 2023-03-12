@@ -1,11 +1,9 @@
 import "./cart.css";
 import Total from "../components/Total";
 import CartItem from "../components/CartItem";
-import { useSelector } from "react-redux";
 
-function Cart() {
-  const cart = useSelector((state) => state.cart);
-
+function Cart({ cart, setCart }) {
+  console.log(cart);
   return (
     <div className="cart">
       <div className="cart__left">
@@ -13,6 +11,8 @@ function Cart() {
           <h3>Shopping Cart</h3>
           {cart?.map((item) => (
             <CartItem
+              cart={cart}
+              setCart={setCart}
               key={item.id}
               id={item.id}
               image={item.image}
@@ -24,7 +24,7 @@ function Cart() {
         </div>
       </div>
       <div className="cart__right">
-        <Total />
+        <Total cart={cart} />
       </div>{" "}
     </div>
   );

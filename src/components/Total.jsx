@@ -1,18 +1,18 @@
 import "./total.css";
-import { useSelector } from "react-redux";
 
-function Total() {
+function Total({ cart }) {
   // The function below is called a selector and allows us to select a value from
   // the state.
-  const cart = useSelector((state) => state.cart);
+  console.log({ myCart: cart });
 
   const getTotal = () => {
     let totalQuantity = 0;
     let totalPrice = 0;
-    cart.forEach((item) => {
-      totalQuantity += item.quantity;
-      totalPrice += item.price * item.quantity;
-    });
+    cart &&
+      cart.forEach((item) => {
+        totalQuantity += item.quantity;
+        totalPrice += item.price * item.quantity;
+      });
     return { totalPrice, totalQuantity };
   };
 

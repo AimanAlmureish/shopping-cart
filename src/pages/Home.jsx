@@ -2,17 +2,19 @@ import "./home.css";
 import Item from "../components/Item";
 import { ShoppingCart } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-function Home() {
-  const navigate = useNavigate();
 
-  const cart = useSelector((state) => state.cart);
+function Home({ cart, setCart }) {
+  const navigate = useNavigate();
+  console.log(cart);
 
   const getTotalQuantity = () => {
     let total = 0;
+    console.log({ cart: cart });
     cart.forEach((item) => {
+      console.log(item.quantity);
       total += item.quantity;
     });
+    console.log({ total: total });
     return total;
   };
 
@@ -21,6 +23,8 @@ function Home() {
       <div className="home__container">
         <div className="home__row">
           <Item
+            cart={cart}
+            setCart={setCart}
             id={4}
             title="Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric"
             price={98}
@@ -28,6 +32,8 @@ function Home() {
           />
 
           <Item
+            cart={cart}
+            setCart={setCart}
             id={2}
             title="The Lean Startup: How Constant Innovation Create Radically Successful Businesses Paperback"
             price={29}
@@ -35,6 +41,8 @@ function Home() {
           />
 
           <Item
+            cart={cart}
+            setCart={setCart}
             id={3}
             title="Samsung LC49RG90SSUXEN 49 Curve Led Gaming Monitor"
             price={199}
@@ -42,6 +50,8 @@ function Home() {
           />
 
           <Item
+            cart={cart}
+            setCart={setCart}
             id={5}
             title="New Apple iPad Pro (12.9-inch, Wi-fi, 128GB) - Siver (4th Generation)"
             price={598}
@@ -49,6 +59,8 @@ function Home() {
           />
 
           <Item
+            cart={cart}
+            setCart={setCart}
             id={1}
             title="Kenwood kMix Stand Miser for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk"
             price={229}
@@ -57,17 +69,18 @@ function Home() {
           />
 
           <Item
+            cart={cart}
+            setCart={setCart}
             id={6}
             title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual QHD 5120 x 1440"
             price={1094}
             image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
           />
-        </div>
-      </div>
+        </div>{" "}
+      </div>{" "}
       <div className="shopping-cart" onClick={() => navigate("/cart")}>
-        <ShoppingCart id="cartIcon" />
-        <p>{getTotalQuantity() || 0}</p>
-      </div>
+        <ShoppingCart id="cartIcon" /> <p> {getTotalQuantity() || 0} </p>{" "}
+      </div>{" "}
     </div>
   );
 }
