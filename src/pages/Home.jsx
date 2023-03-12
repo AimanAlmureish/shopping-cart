@@ -3,6 +3,7 @@ import Item from "../components/Item";
 import { ShoppingCart } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 function Home() {
   const navigate = useNavigate();
 
@@ -62,12 +63,12 @@ function Home() {
             price={1094}
             image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
           />
-        </div>
-      </div>
+        </div>{" "}
+      </div>{" "}
       <div className="shopping-cart" onClick={() => navigate("/cart")}>
         <ShoppingCart id="cartIcon" />
-        <p>{getTotalQuantity() || 0}</p>
-      </div>
+        <p> {getTotalQuantity() || 0} </p>{" "}
+      </div>{" "}
     </div>
   );
 }
