@@ -5,16 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 function Home({ cart, setCart }) {
   const navigate = useNavigate();
-  console.log(cart);
 
   const getTotalQuantity = () => {
     let total = 0;
-    console.log({ cart: cart });
     cart.forEach((item) => {
-      console.log(item.quantity);
       total += item.quantity;
     });
-    console.log({ total: total });
     return total;
   };
 

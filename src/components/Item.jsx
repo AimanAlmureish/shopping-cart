@@ -2,7 +2,6 @@ import "./item.css";
 import { useDispatch } from "react-redux";
 
 function Item({ id, title, image, price, cart, setCart }) {
-  // console.log(title);
   return (
     <div className="item">
       <div className="item__info">
@@ -15,13 +14,10 @@ function Item({ id, title, image, price, cart, setCart }) {
       <button
         onClick={() => {
           const itemInCart = cart.find((item) => item.id === id);
-          console.log(itemInCart);
           if (itemInCart) {
-            // console.log(itemInCart);
             setCart(
               cart.map((item) => {
                 if (item.id === itemInCart.id) {
-                  console.log({ item: item });
                   return { ...item, quantity: item.quantity + 1 };
                 } else {
                   return item;
@@ -39,7 +35,6 @@ function Item({ id, title, image, price, cart, setCart }) {
                 quantity: 1,
               },
             ]);
-            console.log(cart);
           }
         }}
       >

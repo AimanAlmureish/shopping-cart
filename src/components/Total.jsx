@@ -3,7 +3,6 @@ import "./total.css";
 function Total({ cart }) {
   // The function below is called a selector and allows us to select a value from
   // the state.
-  console.log({ myCart: cart });
 
   const getTotal = () => {
     let totalQuantity = 0;

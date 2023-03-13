@@ -3,7 +3,6 @@ import Total from "../components/Total";
 import CartItem from "../components/CartItem";
 
 function Cart({ cart, setCart }) {
-  console.log(cart);
   return (
     <div className="cart">
       <div className="cart__left">
